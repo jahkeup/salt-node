@@ -2,11 +2,11 @@
                                          '0.10.21') %}
 {% set platform = salt['config.get']('node:platform',
                                      'linux-x64') %}
-{% set node_file = 'node-v' + version + '-' + platform %}
+{% set node_file = 'node-v' + node_version + '-' + platform %}
 {% set nodejs = {
   'src_file': node_file,
   'src_path': '/usr/src/' + node_file,
-  'url': 'http://nodejs.org/dist/v' + version  +
+  'url': 'http://nodejs.org/dist/v' + node_version  +
    '/' + node_file + '.tar.gz',
   'url_hash': 'md5=774bc17875c042ac42ad2d96b9c96734',
   'version': node_version
