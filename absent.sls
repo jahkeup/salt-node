@@ -1,4 +1,4 @@
-{% import node from 'node/map.jinja' with context %}
+{% from 'node/map.jinja' import node with context %}
 node-binary:
   cmd.run:
     - cwd: {{node.src_pa
