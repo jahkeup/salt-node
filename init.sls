@@ -1,4 +1,4 @@
-{% from 'nodejs/map.jinja' import nodejs with context %}
+{% from 'node/map.jinja' import nodejs with context %}
 
 nodejs-deps:
   pkg.installed:
