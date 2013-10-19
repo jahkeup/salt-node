@@ -3,7 +3,7 @@
 {% set platform = salt['config.get']('node:platform',
                                      'linux-x64') %}
 {% set node_file = 'node-v' + version + '-' + platform %}
-{% set node = {
+{% set nodejs = {
   'src_file': node_file,
   'src_path': '/usr/src/' + node_file,
   'url': 'http://nodejs.org/dist/v' + version  +

@@ -1,27 +1,27 @@
-{% from 'node/map.jinja' import node with context %}
+{% from 'nodejs/map.jinja' import nodejs with context %}
 
-node-deps:
+nodejs-deps:
   pkg.installed:
     - pkgs:
       - build-essential
       - curl
 
-node-tarball:
+nodejs-tarball:
   file.managed:
-    - name: /usr/src/{{node.src_file}}.tar.gz
-    - source: {{node.url}}
-    - source_hash: {{node.url_hash}}
+    - name: /usr/src/{{nodejs.src_file}}.tar.gz
+    - source: {{nodejs.url}}
+    - source_hash: {{nodejs.url_hash}}
     - require:
-      - pkg: node-deps
+      - pkg: nodejs-deps
   cmd.wait:
     - cwd: /usr/src
-    - name: tar zxf {{node.src_file}}.tar.gz
+    - name: tar zxf {{nodejs.src_file}}.tar.gz
     - watch:
-      - file: node-tarball
+      - file: nodejs-tarball
 
-node-build:
+nodejs-build:
   cmd.wait:
-    - cwd: {{node.src_path}}
+    - cwd: {{nodejs.src_path}}
     - name: ./configure && make install
     - watch:
-      - cmd: node-tarball
+      - cmd: nodejs-tarball

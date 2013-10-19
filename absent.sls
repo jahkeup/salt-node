@@ -1,16 +1,16 @@
-{% from 'node/map.jinja' import node with context %}
-node-binary:
+{% from 'node/map.jinja' import nodejs with context %}
+nodejs-binary:
   cmd.run:
-    - cwd: {{node.src_pa
+    - cwd: {{nodejs.src_pa
     th}}
     - name: make uninstall
 
-node-src:
+nodejs-src:
   file.absent:
-    - name: {{node.src_path}}
+    - name: {{nodejs.src_path}}
     - require:
-      - cmd: node-binary
+      - cmd: nodejs-binary
 
-node-tarball:
+nodejs-tarball:
   file.absent:
-    - name: {{node.src_path}}.tar.gz
+    - name: {{nodejs.src_path}}.tar.gz
