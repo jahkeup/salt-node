@@ -1,8 +1,7 @@
 {% from 'node/map.jinja' import nodejs with context %}
 nodejs-binary:
   cmd.run:
-    - cwd: {{nodejs.src_pa
-    th}}
+    - cwd: {{nodejs.src_path}}
     - name: make uninstall
 
 nodejs-src:
